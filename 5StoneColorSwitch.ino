@@ -37,71 +37,73 @@ uint8_t gHue = 0; // rotating "base color" used by many of the patterns
 
 //----------- LED Strip Allocation Definitions -------------
 
-//int BUTTON0_LEDS_START = 0; //First LED to illuminate this button
-//int BUTTON0_LEDS_LENGTH = 5; //How many LEDS for this button?
-//-----------
+//--- TEST ALLOCATIONS --
 int BUTTON0_LEDS_START = 0; //For testing on small 5 led strip
 int BUTTON0_LEDS_LENGTH = 1; //For testing on small 5 led strip
-//-----------
-int B0_COLOR = 0; //Current color selected for this button
-int B0_CORRECT_COLOR = 4; //Set this to the color you want to match at this location (0 = Red, 1 = Green, 2 = Blue, 3 = Purple, 4 = White)
-int button0State;             // the current reading from the input pin
-int lastButton0State = HIGH;   // the previous reading from the input pin
+int BUTTON1_LEDS_START = 1; //For testing on small 5 led strip
+int BUTTON1_LEDS_LENGTH = 1; //For testing on small 5 led strip
+int BUTTON2_LEDS_START = 2; //For testing on small 5 led strip
+int BUTTON2_LEDS_LENGTH = 1; //For testing on small 5 led strip
+int BUTTON3_LEDS_START = 3; //For testing on small 5 led strip
+int BUTTON3_LEDS_LENGTH = 1; //For testing on small 5 led strip
+int BUTTON4_LEDS_START = 4; //For testing on small 5 led strip
+int BUTTON4_LEDS_LENGTH = 1; //For testing on small 5 led strip
+//-----------------------
+//---25 LED String Settings Settings ----
+//int BUTTON0_LEDS_START = 0; //First LED to illuminate this button
+//int BUTTON0_LEDS_LENGTH = 5; //How many LEDS for this button?
 
 //int BUTTON1_LEDS_START = 5; //First LED to illuminate this button
 //int BUTTON1_LEDS_LENGTH = 5; //How many LEDS for this button?
-//------------
-int BUTTON1_LEDS_START = 1; //For testing on small 5 led strip
-int BUTTON1_LEDS_LENGTH = 1; //For testing on small 5 led strip
-//------------
-int B1_COLOR = 0; //Current color selected for this button
-int B1_CORRECT_COLOR = 3; //Set this to the color you want to match at this location (0 = Red, 1 = Green, 2 = Blue, 3 = Purple, 4 = White)
-int button1State;             // the current reading from the input pin
-int lastButton1State = HIGH;   // the previous reading from the input pin
 
 //int BUTTON2_LEDS_START = 10; //First LED to illuminate this button
 //int BUTTON2_LEDS_LENGTH = 5; //How many LEDS for this button?
-//------------
-int BUTTON2_LEDS_START = 2; //For testing on small 5 led strip
-int BUTTON2_LEDS_LENGTH = 1; //For testing on small 5 led strip
-//------------
-int B2_COLOR = 0; //Current color selected for this button
-int B2_CORRECT_COLOR = 2; //Set this to the color you want to match at this location (0 = Red, 1 = Green, 2 = Blue, 3 = Purple, 4 = White)
-int button2State;             // the current reading from the input pin
-int lastButton2State = HIGH;   // the previous reading from the input pin
 
 //int BUTTON3_LEDS_START = 15; //First LED to illuminate this button
 //int BUTTON3_LEDS_LENGTH = 5; //How many LEDS for this button?
-//------------
-int BUTTON3_LEDS_START = 3; //For testing on small 5 led strip
-int BUTTON3_LEDS_LENGTH = 1; //For testing on small 5 led strip
-//------------
-int B3_COLOR = 0; //Current color selected for this button
-int B3_CORRECT_COLOR = 1; //Set this to the color you want to match at this location (0 = Red, 1 = Green, 2 = Blue, 3 = Purple, 4 = White)
-
-int button3State;             // the current reading from the input pin
-int lastButton3State = HIGH;   // the previous reading from the input pin
 
 //int BUTTON4_LEDS_START = 20; //First LED to illuminate this button
 //int BUTTON4_LEDS_LENGTH = 4; //How many LEDS for this button?
-//------------
-int BUTTON4_LEDS_START = 4; //For testing on small 5 led strip
-int BUTTON4_LEDS_LENGTH = 1; //For testing on small 5 led strip
-//------------
+
+//---------------------------------------------------------------------
+//----- Button Color Config ---------------------------------
+int B0_COLOR = 0; //Current color selected for this button
+int B0_CORRECT_COLOR = 4; //Set this to the color you want to match at this location (0 = Red, 1 = Green, 2 = Blue, 3 = Purple, 4 = White)
+
+int B1_COLOR = 0; //Current color selected for this button
+int B1_CORRECT_COLOR = 3; //Set this to the color you want to match at this location (0 = Red, 1 = Green, 2 = Blue, 3 = Purple, 4 = White)
+
+int B2_COLOR = 0; //Current color selected for this button
+int B2_CORRECT_COLOR = 2; //Set this to the color you want to match at this location (0 = Red, 1 = Green, 2 = Blue, 3 = Purple, 4 = White)
+
+int B3_COLOR = 0; //Current color selected for this button
+int B3_CORRECT_COLOR = 1; //Set this to the color you want to match at this location (0 = Red, 1 = Green, 2 = Blue, 3 = Purple, 4 = White)
+
 int B4_COLOR = 0; //Current color selected for this button
 int B4_CORRECT_COLOR = 0; //Set this to the color you want to match at this location (0 = Red, 1 = Green, 2 = Blue, 3 = Purple, 4 = White)
+
+//------------------------------------------------------------
+
+//------Needed for button debounce----------------
+int button0State;             // the current reading from the input pin
+int lastButton0State = HIGH;   // the previous reading from the input pin
+int button1State;             // the current reading from the input pin
+int lastButton1State = HIGH;   // the previous reading from the input pin
+int button2State;             // the current reading from the input pin
+int lastButton2State = HIGH;   // the previous reading from the input pin
+int button3State;             // the current reading from the input pin
+int lastButton3State = HIGH;   // the previous reading from the input pin
 int button4State;             // the current reading from the input pin
 int lastButton4State = HIGH;   // the previous reading from the input pin
-
 
 // the following variables are long's because the time, measured in miliseconds,
 // will quickly become a bigger number than can be stored in an int.
 long lastDebounceTime = 0;  // the last time the output pin was toggled
 long debounceDelay = 50;    // the debounce time; increase if the output flickers
+//------------------------------------------------
 
 int LockDelay = 5000; // How long to stay unlocked (in milliseconds) before game reset
 int GameStart = 0;
-
 int fadeOutDone = 0;
 int fadeInDone = 0;
 void setup() {
